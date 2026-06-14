@@ -129,11 +129,11 @@ function Index() {
 
         {/* Name block */}
         <div className="mt-auto flex w-full items-end justify-between gap-4">
-          <h1 className="flex w-full flex-col leading-[0.85] md:flex-row md:items-end md:justify-between md:gap-8">
+          <h1 className="flex w-full items-end justify-between gap-4 leading-[0.85]">
             <span className="overflow-hidden block">
               <span
                 ref={firstNameRef}
-                className="font-display-sans block text-white"
+                className="font-display-serif block text-white"
                 style={{
                   fontSize: "clamp(48px, 14vw, 260px)",
                   lineHeight: 0.85,
@@ -184,12 +184,12 @@ function Index() {
               <Link to="/info" className="transition-colors hover:text-white">
                 Info
               </Link>
-              <a
-                href="mailto:Abdullahsaleem874@gmail.com"
-                className="transition-colors hover:text-white"
-              >
+              <Link to="/projects" className="transition-colors hover:text-white">
+                Projects
+              </Link>
+              <Link to="/contact" className="transition-colors hover:text-white">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </footer>
