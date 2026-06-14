@@ -135,7 +135,7 @@ function Index() {
                 ref={firstNameRef}
                 className="font-display-sans block text-white"
                 style={{
-                  fontSize: "clamp(56px, 18vw, 340px)",
+                  fontSize: "clamp(48px, 14vw, 260px)",
                   lineHeight: 0.85,
                 }}
               >
@@ -147,7 +147,7 @@ function Index() {
                 ref={lastNameRef}
                 className="font-display-serif block text-white"
                 style={{
-                  fontSize: "clamp(56px, 18vw, 340px)",
+                  fontSize: "clamp(48px, 14vw, 260px)",
                   lineHeight: 0.85,
                 }}
               >
