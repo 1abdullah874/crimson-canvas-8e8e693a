@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -135,7 +135,7 @@ function Index() {
                 ref={firstNameRef}
                 className="font-display-sans block text-white"
                 style={{
-                  fontSize: "clamp(80px, 22vw, 340px)",
+                  fontSize: "clamp(56px, 18vw, 340px)",
                   lineHeight: 0.85,
                 }}
               >
@@ -147,7 +147,7 @@ function Index() {
                 ref={lastNameRef}
                 className="font-display-serif block text-white"
                 style={{
-                  fontSize: "clamp(80px, 22vw, 340px)",
+                  fontSize: "clamp(56px, 18vw, 340px)",
                   lineHeight: 0.85,
                 }}
               >
@@ -163,24 +163,31 @@ function Index() {
           <div className="font-mono-ui mt-5 grid grid-cols-3 items-center text-[10px] uppercase tracking-[0.22em] text-white/55 md:text-xs">
             <div className="text-left">V1.0</div>
             <div className="flex justify-center gap-5 md:gap-8">
-              <a href="#" className="transition-colors hover:text-white">
+              <a
+                href="https://github.com/1abdullah874"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-white"
+              >
                 Github
               </a>
-              <a href="#" className="transition-colors hover:text-white">
+              <a
+                href="https://www.linkedin.com/in/abdullah-ali-saleem-5b8bab298/"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-white"
+              >
                 LinkedIn
-              </a>
-              <a href="#" className="transition-colors hover:text-white">
-                Behance
               </a>
             </div>
             <div className="flex justify-end gap-5 md:gap-8">
-              <a href="#" className="transition-colors hover:text-white">
-                Work
-              </a>
-              <a href="#" className="transition-colors hover:text-white">
+              <Link to="/info" className="transition-colors hover:text-white">
                 Info
-              </a>
-              <a href="#" className="transition-colors hover:text-white">
+              </Link>
+              <a
+                href="mailto:Abdullahsaleem874@gmail.com"
+                className="transition-colors hover:text-white"
+              >
                 Contact
               </a>
             </div>
