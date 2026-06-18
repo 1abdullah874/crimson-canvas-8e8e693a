@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export const Route = createFileRoute("/")({
@@ -30,6 +30,7 @@ function Index() {
   const lastNameRef = useRef<HTMLSpanElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
   const footerRef = useRef<HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -160,7 +161,8 @@ function Index() {
         {/* Footer */}
         <footer ref={footerRef} className="mt-10 w-full">
           <div className="h-px w-full bg-white/15" />
-          <div className="font-mono-ui mt-5 grid grid-cols-3 items-center text-[10px] uppercase tracking-[0.22em] text-white/55 md:text-xs">
+          {/* Desktop / tablet footer */}
+          <div className="font-mono-ui mt-5 hidden grid-cols-3 items-center text-[10px] uppercase tracking-[0.22em] text-white/55 sm:grid md:text-xs">
             <div className="text-left">V1.0</div>
             <div className="flex justify-center gap-5 md:gap-8">
               <a
@@ -192,8 +194,84 @@ function Index() {
               </Link>
             </div>
           </div>
+
+          {/* Mobile footer: version + burger */}
+          <div className="font-mono-ui mt-5 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-white/55 sm:hidden">
+            <span>V1.0</span>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+              className="flex flex-col items-end gap-[5px] py-1"
+            >
+              <span className="block h-px w-6 bg-white/80" />
+              <span className="block h-px w-4 bg-white/80" />
+            </button>
+          </div>
         </footer>
       </div>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-black/95 px-8 py-8 backdrop-blur-sm sm:hidden">
+          <div className="flex items-center justify-between">
+            <span className="font-mono-ui text-[10px] uppercase tracking-[0.22em] text-white/55">
+              Menu
+            </span>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+              className="font-mono-ui text-[11px] uppercase tracking-[0.22em] text-white"
+            >
+              Close
+            </button>
+          </div>
+
+          <nav className="mt-16 flex flex-col gap-7">
+            <Link
+              to="/info"
+              onClick={() => setMenuOpen(false)}
+              className="font-display-serif text-5xl text-white"
+            >
+              Info
+            </Link>
+            <Link
+              to="/projects"
+              onClick={() => setMenuOpen(false)}
+              className="font-display-serif text-5xl text-white"
+            >
+              Projects
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="font-display-serif text-5xl text-white"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          <div className="mt-auto flex items-center justify-between border-t border-white/15 pt-5 font-mono-ui text-[10px] uppercase tracking-[0.22em] text-white/55">
+            <a
+              href="https://github.com/1abdullah874"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white"
+            >
+              Github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abdullah-ali-saleem-5b8bab298/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
