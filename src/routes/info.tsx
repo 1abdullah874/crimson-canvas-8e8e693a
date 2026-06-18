@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 
 export const Route = createFileRoute("/info")({
   head: () => ({
@@ -97,12 +98,10 @@ function InfoPage() {
           <div>
             <div className="relative aspect-[4/5] w-full max-w-sm">
               <CornerMarks />
-              <div
-                className="h-full w-full"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(60,10,15,0.6), rgba(20,5,8,0.9))",
-                }}
+              <img
+                src={profileAsset.url}
+                alt="Abdullah Saleem"
+                className="h-full w-full object-cover"
               />
             </div>
             <dl className="mt-8 max-w-sm space-y-3 text-sm">
